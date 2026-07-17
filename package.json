@@ -1,0 +1,37 @@
+{
+  "name": "quickdock",
+  "version": "0.1.0",
+  "private": true,
+  "description": "QuickDock — Universal desktop sharing platform",
+  "scripts": {
+    "dev": "pnpm --filter @quickdock/app dev",
+    "build": "pnpm --filter @quickdock/app build",
+    "tauri": "pnpm --filter @quickdock/app tauri",
+    "tauri:dev": "pnpm --filter @quickdock/app tauri:dev",
+    "tauri:build": "pnpm --filter @quickdock/app tauri:build",
+    "server:dev": "pnpm --filter @quickdock/server dev",
+    "server:build": "pnpm --filter @quickdock/server build",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "typecheck": "pnpm -r typecheck",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yaml,yml,css}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

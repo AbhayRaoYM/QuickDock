@@ -1,0 +1,146 @@
+/**
+ * globals.css
+ *
+ * 1. Tailwind base/components/utilities layers
+ * 2. CSS custom properties for the design token layer (light + dark)
+ * 3. Global element resets
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* Background */
+    --color-bg-primary: 255 255 255;       /* #ffffff */
+    --color-bg-secondary: 247 248 250;     /* #f7f8fa */
+    --color-bg-tertiary: 237 239 244;      /* #edeffe */
+
+    /* Surface (cards / panels) */
+    --color-surface: 255 255 255;
+    --color-surface-raised: 247 248 250;
+
+    /* Text */
+    --color-text-primary: 31 35 40;        /* #1f2328 */
+    --color-text-secondary: 87 96 106;     /* #57606a */
+    --color-text-muted: 139 148 158;       /* #8b949e */
+
+    /* Border */
+    --color-border: 229 231 235;           /* #e5e7eb */
+    --color-border-subtle: 243 244 246;    /* #f3f4f6 */
+
+    /* Accent */
+    --color-accent: 59 130 246;            /* #3b82f6 */
+    --color-accent-hover: 37 99 235;       /* #2563eb */
+  }
+
+  .dark {
+    /* Background */
+    --color-bg-primary: 26 27 30;          /* #1a1b1e */
+    --color-bg-secondary: 33 35 38;        /* #212326 */
+    --color-bg-tertiary: 42 44 48;         /* #2a2c30 */
+
+    /* Surface */
+    --color-surface: 33 35 38;
+    --color-surface-raised: 42 44 48;
+
+    /* Text */
+    --color-text-primary: 230 237 243;     /* #e6edf3 */
+    --color-text-secondary: 139 148 158;   /* #8b949e */
+    --color-text-muted: 110 118 129;       /* #6e7681 */
+
+    /* Border */
+    --color-border: 48 54 61;              /* #30363d */
+    --color-border-subtle: 33 38 45;       /* #21262d */
+
+    /* Accent */
+    --color-accent: 88 166 255;            /* #58a6ff */
+    --color-accent-hover: 121 192 255;     /* #79c0ff */
+  }
+}
+
+/* ─── Base element resets ────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Tauri: prevent text selection on drag */
+    user-select: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(var(--color-bg-primary));
+    color: rgb(var(--color-text-primary));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-text-muted));
+  }
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────────── */
+@layer components {
+  .page-container {
+    @apply mx-auto max-w-4xl px-6 py-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-[rgb(var(--color-border))] bg-[rgb(var(--color-surface))] p-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[rgb(var(--color-accent))] 
+           px-5 py-2.5 text-sm font-medium text-white transition-colors
+           hover:bg-[rgb(var(--color-accent-hover))] 
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+           focus-visible:outline-[rgb(var(--color-accent))]
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border 
+           border-[rgb(var(--color-border))] bg-[rgb(var(--color-surface))]
+           px-5 py-2.5 text-sm font-medium text-[rgb(var(--color-text-primary))] 
+           transition-colors hover:bg-[rgb(var(--color-bg-secondary))]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+           focus-visible:outline-[rgb(var(--color-accent))]
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium 
+           text-[rgb(var(--color-text-secondary))] transition-colors
+           hover:bg-[rgb(var(--color-bg-secondary))] hover:text-[rgb(var(--color-text-primary))];
+  }
+
+  .nav-link-active {
+    @apply bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))];
+  }
+}
