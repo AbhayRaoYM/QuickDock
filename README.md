@@ -138,8 +138,8 @@ QuickDock supports **Light**, **Dark**, and **System** themes.
 
 ---
 
--- Widget WebviewWindow created on startup: frameless, transparent, always-on-top, skip-taskbar, 320×420, hidden by default
--- System tray with left-click toggle + right-click menu (Show Widget / Hide Widget / Quit)
--- Global shortcut Ctrl+Shift+S registered system-wide — toggles widget from anywhere
--- 8 IPC commands: show_widget, hide_widget, toggle_widget, get_widget_visible, set_autostart, get_autostart, send_notification, get_monitor_info
--- tauri-plugin-autostart + tauri-plugin-global-shortcut added
+- Widget WebviewWindow created on startup: frameless, transparent, always-on-top, skip-taskbar, 320×420, hidden by default
+- System tray with left-click toggle + right-click menu (Show Widget / Hide Widget / Quit)
+- Global shortcut Ctrl+Shift+S registered system-wide — toggles widget from anywhere
+- 8 IPC commands: show_widget, hide_widget, toggle_widget, get_widget_visible, set_autostart, get_autostart, send_notification, get_monitor_info
+- tauri-plugin-autostart + tauri-plugin-global-shortcut added
