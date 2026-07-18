@@ -6,6 +6,18 @@ QuickDock is a lightweight Tauri 2.x desktop application that lets users drag-an
 
 ---
 
+## To Run
+
+```
+# Terminal 1
+pnpm server:dev
+
+# Terminal 2
+pnpm tauri:dev
+````
+
+---
+
 ## Workflow
 
 ```
